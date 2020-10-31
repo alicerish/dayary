@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.5.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+
 }
 
 group = 'us.spring'
@@ -24,7 +25,7 @@ repositories {
 }
 
 dependencies {
-
+	compile project(':frontend')
 	//JWT
 	implementation 'com.auth0:java-jwt:3.10.3'
 
@@ -61,4 +62,16 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+task frontCopy(type: Copy) {
+	from "${rootDir}/frontend/build/main.bundle.js"
+	into "${rootDir}/backend/build/resources/main/static/."
+	include '*'
+}
+
+assemble.dependsOn(frontCopy)
+
+task('goodbye').doLast {
+	println "Goodbye from $project.name"
 }
