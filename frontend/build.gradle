@@ -31,11 +31,3 @@ task frontCopy(type: Copy) {
 }
 
 frontInstall.dependsOn(frontBuild)
-
-
-allprojects {
-    task('hello').doLast {
-        println "I'm $project.name"
-    }
-}
-

@@ -1,5 +1,19 @@
 /*
 
-!/src/
+!/backend
+/backend/*
+!/backend/src
+!/backend/build.gradle
+!/backend/README.md
+
+!/frontend
+/frontend/*
+!/frontend/src
+!/frontend/build.gradle
+!/frontend/package.json
+!/frontend/webpack.config.js
+!/frontend/README.md
+
 !/.gitignore
-!/build.gradle
+!/settings.gradle
+!/README.md

@@ -71,7 +71,3 @@ task frontCopy(type: Copy) {
 }
 
 assemble.dependsOn(frontCopy)
-
-task('goodbye').doLast {
-	println "Goodbye from $project.name"
-}
