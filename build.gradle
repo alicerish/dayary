@@ -5,13 +5,18 @@ plugins {
 }
 
 group = 'us.spring'
-version = '0.0.1-SNAPSHOT'
+version = ''
 sourceCompatibility = '11'
 
 configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+	compile.exclude module: 'spring-boot-starter-tomcat'
 }
 
 repositories {
@@ -19,10 +24,36 @@ repositories {
 }
 
 dependencies {
+
+	//JWT
+	implementation 'com.auth0:java-jwt:3.10.3'
+
+	//BCRYPT
+	implementation 'org.mindrot:jbcrypt:0.4'
+
+	//MARIADB
+	implementation 'org.mariadb.jdbc:mariadb-java-client'
+
+	//UNDERTOW
+	implementation 'org.springframework.boot:spring-boot-starter-undertow'
+
+	//log4jdbc-log4j2
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+	//JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+	//SPRING MVC, TOMCAT
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//LOMBOK
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	//DEBUG and hot-swapping(autoreload)
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
