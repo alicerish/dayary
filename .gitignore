@@ -12,6 +12,8 @@
 !/frontend/build.gradle
 !/frontend/package.json
 !/frontend/webpack.config.js
+!/frontend/.babelrc
+!/frontend/.prettierrc.js
 !/frontend/README.md
 
 !/.gitignore
