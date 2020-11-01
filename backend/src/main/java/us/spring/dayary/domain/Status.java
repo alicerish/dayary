@@ -18,7 +18,8 @@ public enum Status {
     INVALID_TOKEN("유효하지않은토큰"),
     EXPIRED_TOKEN("만료된토큰"),
     DELETE_ALREADY("이미삭제되었음"),
-    NO_CONTENT("존재하지않는일기");
+    NO_CONTENT("존재하지않는일기"),
+    EXIST_ID("존재하는아이디");
 
     private String message;
 

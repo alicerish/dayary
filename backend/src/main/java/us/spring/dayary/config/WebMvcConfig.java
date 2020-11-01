@@ -12,7 +12,7 @@ import us.spring.dayary.common.interceptor.DayaryInterceptor;
 @EnableWebMvc //WebMvcConfigurationSupport 빈으로 등록 -> WebMvcAutoConfiguration 비활성
 public class WebMvcConfig {
 
-    DayaryInterceptor dayaryInterceptor;
+    private final DayaryInterceptor dayaryInterceptor;
 
     public WebMvcConfig(DayaryInterceptor dayaryInterceptor) {
         this.dayaryInterceptor = dayaryInterceptor;
