@@ -9,6 +9,7 @@
 !/frontend
 /frontend/*
 !/frontend/src
+!/frontend/public
 !/frontend/build.gradle
 !/frontend/package.json
 !/frontend/webpack.config.js
