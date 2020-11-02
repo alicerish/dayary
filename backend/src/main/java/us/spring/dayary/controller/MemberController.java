@@ -1,5 +1,7 @@
 package us.spring.dayary.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import us.spring.dayary.domain.Member;
 import us.spring.dayary.service.MemberService;

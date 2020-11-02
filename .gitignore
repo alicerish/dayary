@@ -14,6 +14,8 @@
 !/frontend/webpack.config.js
 !/frontend/.babelrc
 !/frontend/.prettierrc.js
+!/frontend/.env
+!/frontend/.env.production
 !/frontend/README.md
 
 !/.gitignore
