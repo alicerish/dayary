@@ -23,6 +23,10 @@ public class WebMvcConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
+                registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
+                registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
+                registry.addResourceHandler("/image/**").addResourceLocations("classpath:/static/image/");
+                registry.addResourceHandler("/error/**").addResourceLocations("classpath:/templates/error/");
                 registry.addResourceHandler("/robots.txt").addResourceLocations("classpath:/static/doc/");
             }
 
