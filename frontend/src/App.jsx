@@ -1,26 +1,20 @@
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import { PublicRoute } from './routers/PublicRoute';
 import { PrivateRoute } from './routers/PrivateRoute';
 
-import { LoginFeatures, SignupFeatures } from '@/features/member';
+import SignUp from '@/features/signup';
 
 const App = () => {
     return (
-        <div>
+        <div className="form-structor">
             <Switch>
                 <PublicRoute
                     exact
                     restricted={false}
-                    path={['/', '/login']}
-                    component={LoginFeatures}
-                />
-                <PublicRoute
-                    exact
-                    restricted={false}
-                    path="/signup"
-                    component={SignupFeatures}
+                    path={['/', '/signup']}
+                    component={SignUp}
                 />
             </Switch>
         </div>

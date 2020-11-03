@@ -79,6 +79,7 @@ axios-util을 통해 모든 요청마다 토근값 가져가도록 함
 # References
 https://poiemaweb.com/es6-babel-webpack-1
 https://dev.to/0xhjohnson/setup-react-babel-7-and-webpack-4-2168
+https://developerhandbook.com/webpack/how-to-configure-scss-modules-for-webpack/
 
 # Error 
 ## 1. api 호출 시 regeneratorRuntime is not defined 이슈
