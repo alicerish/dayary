@@ -71,66 +71,66 @@ const EntryForm = () => {
 
     return (
         <div>
-            <div className={`signup ${!form ? 'slide-up' : ''}`}>
+            <div className={`login ${!form ? 'slide-up' : ''}`}>
                 <h2
                     className="form-title"
-                    id="signup"
+                    id="logIn"
                     onClick={handleFormChange}
                 >
-                    <span>or</span>Sign up
+                    <span>or</span>Log in
                 </h2>
                 <div className="form-holder">
                     <input
-                        className="input"
                         name="id"
-                        autoComplete="off"
+                        className="input"
                         placeholder="Id"
                         onChange={handleChange}
-                    ></input>
+                    />
                     <input
-                        className="input"
+                        type="password"
                         name="password"
-                        placeholder="password"
-                        onChange={handleChange}
-                    ></input>
-                    <input
                         className="input"
-                        name="password_chk"
-                        placeholder="password check"
+                        placeholder="Password"
                         onChange={handleChange}
-                    ></input>
+                    />
                 </div>
-                <button className="submit-btn" onClick={handleSignUp}>
-                    Sign up
+                <button className="submit-btn" onClick={handleLogIn}>
+                    Log In
                 </button>
             </div>
 
-            <div className={`login ${form ? 'slide-up' : ''}`}>
+            <div className={`signup ${form ? 'slide-up' : ''}`}>
                 <div className="center">
                     <h2
                         className="form-title"
-                        id="logIn"
+                        id="signup"
                         onClick={handleFormChange}
                     >
-                        <span>or</span>Log in
+                        <span>or</span>Sign up
                     </h2>
                     <div className="form-holder">
                         <input
-                            name="id"
                             className="input"
+                            name="id"
+                            autoComplete="off"
                             placeholder="Id"
                             onChange={handleChange}
-                        />
+                        ></input>
                         <input
-                            type="password"
-                            name="password"
                             className="input"
-                            placeholder="Password"
+                            name="password"
+                            placeholder="password"
                             onChange={handleChange}
-                        />
+                        ></input>
+                        <input
+                            className="input"
+                            name="password_chk"
+                            placeholder="password check"
+                            onChange={handleChange}
+                        ></input>
                     </div>
-                    <button className="submit-btn" onClick={handleLogIn}>
-                        Log In
+                    <button className="submit-btn" onClick={handleSignUp}>
+                        Sign up
                     </button>
                 </div>
             </div>
