@@ -1,17 +1,43 @@
 import React, { useState } from 'react';
-import { signUp } from '../apis';
+import { useHistory } from 'react-router-dom';
+import { logIn, signUp } from '../apis';
 
 import './index.scss';
 
-const SignupForm = () => {
+const EntryForm = () => {
+    let history = useHistory();
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     const [form, setForm] = useState(true);
 
-    const handleFormChange = () => {
-        setForm(!form);
+    const [token, setToken] = useState('');
+
+    React.useEffect(() => {
+        if (sessionStorage.getItem('_jwt')) {
+            sessionStorage.removeItem('_jwt');
+
+            handleLogout();
+        }
+
+        if (token) {
+            sessionStorage.setItem('_jwt', token);
+
+            history.push('/main');
+        }
+    }, [token]);
+
+    const handleLogout = async () => {
+        document.location.href = '/';
     };
 
+    // form 변경 시 입력 정보 reset
+    const handleFormChange = () => {
+        setForm(!form);
+        setId('');
+        setPassword('');
+    };
+
+    // input값 변경
     const handleChange = (e) => {
         if (e.currentTarget.name === 'id') {
             setId(e.currentTarget.value);
@@ -20,9 +46,27 @@ const SignupForm = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSignUp = (e) => {
         e.preventDefault();
-        signUp({ id: id, password: password });
+        signUp({ id: id, password: password })
+            .then(() => {
+                console.log('signUp!');
+            })
+            .catch(() => {
+                console.log('error');
+            });
+    };
+
+    const handleLogIn = (e) => {
+        e.preventDefault();
+        logIn({ id: id, password: password })
+            .then((res) => {
+                setToken(res._jwt);
+                localStorage.setItem('_jwt', res._jwt);
+            })
+            .catch(() => {
+                console.log('로그인 실패');
+            });
     };
 
     return (
@@ -56,7 +100,7 @@ const SignupForm = () => {
                         onChange={handleChange}
                     ></input>
                 </div>
-                <button className="submit-btn" onClick={handleSubmit}>
+                <button className="submit-btn" onClick={handleSignUp}>
                     Sign up
                 </button>
             </div>
@@ -65,28 +109,33 @@ const SignupForm = () => {
                 <div className="center">
                     <h2
                         className="form-title"
-                        id="login"
+                        id="logIn"
                         onClick={handleFormChange}
                     >
                         <span>or</span>Log in
                     </h2>
                     <div className="form-holder">
                         <input
-                            type="email"
+                            name="id"
                             className="input"
                             placeholder="Id"
+                            onChange={handleChange}
                         />
                         <input
                             type="password"
+                            name="password"
                             className="input"
                             placeholder="Password"
+                            onChange={handleChange}
                         />
                     </div>
-                    <button className="submit-btn">Log In</button>
+                    <button className="submit-btn" onClick={handleLogIn}>
+                        Log In
+                    </button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default SignupForm;
+export default EntryForm;

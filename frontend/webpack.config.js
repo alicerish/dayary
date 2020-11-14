@@ -47,6 +47,7 @@ const config = {
             },
         ],
     },
+    devtool: 'source-map',
     devServer: {
         port: 3000,
         inline: true,

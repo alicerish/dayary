@@ -5,6 +5,7 @@ import { PublicRoute } from './routers/PublicRoute';
 import { PrivateRoute } from './routers/PrivateRoute';
 
 import SignUp from '@/features/signup';
+import Main from '@/features/main';
 
 const App = () => {
     return (
@@ -15,6 +16,12 @@ const App = () => {
                     restricted={false}
                     path={['/', '/signup']}
                     component={SignUp}
+                />
+                <PrivateRoute
+                    exact
+                    restricted={false}
+                    path={['/main']}
+                    component={Main}
                 />
             </Switch>
         </div>

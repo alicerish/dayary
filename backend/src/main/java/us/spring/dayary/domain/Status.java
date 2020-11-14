@@ -19,7 +19,9 @@ public enum Status {
     EXPIRED_TOKEN("만료된토큰"),
     DELETE_ALREADY("이미삭제되었음"),
     NO_CONTENT("존재하지않는일기"),
-    EXIST_ID("존재하는아이디");
+    EXIST_ID("존재하는아이디"),
+    INVAILD_LOGIN_INFO("아이디비밀번호확인필요"),
+    INVALID_PARAMETER("잘못된요청");
 
     private String message;
 

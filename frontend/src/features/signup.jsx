@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import SignupForm from '../components/SignupForm';
+import EntryForm from '../components/EntryForm';
 
 const Signup = () => {
     return (
         <div>
-            <SignupForm />
+            <EntryForm />
         </div>
     );
 };
